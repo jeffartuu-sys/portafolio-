@@ -118,7 +118,16 @@
   p.lead{
     color:var(--text-dim);
     font-size:16px;
-    max-width:680px;
+    max-width:760px;
+  }
+
+  .note{
+    margin-top:16px;
+    color:var(--text-dim2);
+    font-size:13.5px;
+    max-width:760px;
+    border-left:2px solid var(--amber);
+    padding-left:14px;
   }
 
   .skills-grid{
@@ -280,6 +289,56 @@
     61%{opacity:0;}
     67%{opacity:1;}
     94%{opacity:1;}
+    100%{opacity:0;}
+  }
+
+  .slider-4 img:nth-child(1){
+    animation: sliderCuatroUno 16s infinite;
+  }
+
+  .slider-4 img:nth-child(2){
+    animation: sliderCuatroDos 16s infinite;
+  }
+
+  .slider-4 img:nth-child(3){
+    animation: sliderCuatroTres 16s infinite;
+  }
+
+  .slider-4 img:nth-child(4){
+    animation: sliderCuatroCuatro 16s infinite;
+  }
+
+  @keyframes sliderCuatroUno{
+    0%{opacity:1;}
+    20%{opacity:1;}
+    25%{opacity:0;}
+    95%{opacity:0;}
+    100%{opacity:1;}
+  }
+
+  @keyframes sliderCuatroDos{
+    0%{opacity:0;}
+    20%{opacity:0;}
+    25%{opacity:1;}
+    45%{opacity:1;}
+    50%{opacity:0;}
+    100%{opacity:0;}
+  }
+
+  @keyframes sliderCuatroTres{
+    0%{opacity:0;}
+    45%{opacity:0;}
+    50%{opacity:1;}
+    70%{opacity:1;}
+    75%{opacity:0;}
+    100%{opacity:0;}
+  }
+
+  @keyframes sliderCuatroCuatro{
+    0%{opacity:0;}
+    70%{opacity:0;}
+    75%{opacity:1;}
+    95%{opacity:1;}
     100%{opacity:0;}
   }
 
@@ -457,8 +516,11 @@
   <div class="wrap">
     <div class="section-label">Proyectos</div>
     <h2>Dashboards seleccionados</h2>
-    <p class="lead" style="margin-bottom:32px;">
+    <p class="lead" style="margin-bottom:0;">
       Dashboards desarrollados en Power BI, desde modelado de datos hasta visualización final para distintas áreas del negocio.
+    </p>
+    <p class="note" style="margin-bottom:32px;">
+      Las capturas utilizan datos ficticios, simulados o anonimizados únicamente con fines demostrativos. No representan información confidencial ni datos reales de clientes.
     </p>
 
 ```
@@ -560,27 +622,34 @@
 
 <div class="project">
   <div class="project-meta">
-    <span>FUENTE: <b>PostgreSQL</b></span>
-    <span>REFRESH: <b>Mensual</b></span>
-    <span>HERRAMIENTAS: <b>Power BI · DAX</b></span>
+    <span>FUENTE: <b>SQL Server / Power BI</b></span>
+    <span>REFRESH: <b>Diario / Mensual</b></span>
+    <span>HERRAMIENTAS: <b>Power BI · DAX · Power Query</b></span>
   </div>
 
-  <div class="project-shot">
-    Captura de pantalla del dashboard 4 aquí
+  <div class="project-shot dashboard-slider slider-4">
+    <img src="transacciones.png" alt="Dashboard de Transacciones">
+    <img src="analisis-retornos.png" alt="Dashboard Análisis de Retornos">
+    <img src="membresia.png" alt="Dashboard de Membresía">
+    <img src="saldos-captados.png" alt="Dashboard de Saldos Captados">
   </div>
 
   <div class="project-body">
-    <h3>Nombre del dashboard 4</h3>
-    <p>Describe el reto técnico del proyecto, por ejemplo integración de múltiples fuentes, optimización de consultas, automatización de cargas o análisis histórico.</p>
+    <h3>Dashboards Operativos y Comerciales</h3>
+    <p>
+      Conjunto de dashboards desarrollados para distintas áreas del negocio, incluyendo análisis de transacciones, retornos en solicitudes, membresía y saldos captados. Estos reportes permiten dar seguimiento a indicadores clave, validar comportamientos operativos y apoyar la toma de decisiones por región, fecha, producto y tipo de gestión.
+    </p>
 
     <div class="tag-row">
-      <span class="tag">PostgreSQL</span>
-      <span class="tag">Integración de fuentes</span>
-      <span class="tag">Automatización</span>
+      <span class="tag">Power BI</span>
+      <span class="tag">DAX</span>
+      <span class="tag">Power Query</span>
+      <span class="tag">SQL Server</span>
+      <span class="tag">Indicadores</span>
     </div>
 
     <div class="project-links">
-      <a href="#">Próximamente</a>
+      <a href="#">Vista previa publicada</a>
     </div>
   </div>
 </div>
