@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeffry Daniel Ruiz Yapan — Portafolio de Datos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14181F;
+    --bg-2: #1C212B;
+    --paper: #F6F3EC;
+    --amber: #E3A53D;
+    --amber-dim: #B07F2A;
+    --teal: #4F8A7C;
+    --line: rgba(246,243,236,0.12);
+    --text: #F6F3EC;
+    --text-dim: #9CA3AF;
+    --text-dim2: #6B7280;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:980px; margin:0 auto; padding:0 32px;}
+  a{color:var(--amber); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* HERO */
+  header.hero{
+    padding:90px 0 70px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:56px;
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    max-width:680px;
+  }
+  .role{
+    font-size:19px;
+    color:var(--text-dim);
+    margin-top:18px;
+    max-width:560px;
+  }
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:24px;
+    margin-top:34px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--text-dim2);
+  }
+  .contact-row span{color:var(--text-dim);}
+
+  /* SECTION GENERIC */
+  section{padding:64px 0; border-bottom:1px solid var(--line);}
+  .section-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-dim2);
+    margin-bottom:14px;
+  }
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:30px;
+    margin-bottom:24px;
+  }
+  p.lead{color:var(--text-dim); font-size:16px; max-width:680px;}
+
+  /* SKILLS */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap:28px;
+    margin-top:28px;
+  }
+  .skill-group h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--teal);
+    margin-bottom:10px;
+  }
+  .skill-group ul{list-style:none;}
+  .skill-group li{
+    color:var(--text);
+    font-size:14.5px;
+    padding:6px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* PROJECTS */
+  .project{
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    margin-bottom:32px;
+  }
+  .project-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    color:var(--text-dim2);
+    border-bottom:1px solid var(--line);
+  }
+  .project-meta span{
+    padding:10px 18px;
+    border-right:1px solid var(--line);
+  }
+  .project-meta b{color:var(--amber); font-weight:500;}
+  .project-shot{
+    width:100%;
+    aspect-ratio:16/9;
+    background:
+      repeating-linear-gradient(45deg, rgba(246,243,236,0.04) 0, rgba(246,243,236,0.04) 2px, transparent 2px, transparent 14px),
+      #11151C;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-dim2);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-align:center;
+    padding:20px;
+  }
+  .project-shot img{width:100%; height:100%; object-fit:cover; display:block;}
+  .project-body{padding:22px 24px 26px;}
+  .project-body h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:21px;
+    margin-bottom:8px;
+  }
+  .project-body p{color:var(--text-dim); font-size:14.5px; margin-bottom:14px;}
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--teal);
+    border:1px solid var(--teal);
+    border-radius:3px;
+    padding:3px 9px;
+  }
+  .project-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    margin-right:18px;
+  }
+
+  /* CERTS */
+  .cert-list{display:flex; flex-direction:column; gap:10px; margin-top:20px;}
+  .cert-item{
+    display:flex; justify-content:space-between; gap:16px;
+    border-bottom:1px solid var(--line);
+    padding:10px 0;
+    font-size:14.5px;
+  }
+  .cert-item span:last-child{color:var(--text-dim2); font-family:'IBM Plex Mono', monospace; font-size:12.5px;}
+
+  footer{
+    padding:50px 0 80px;
+    text-align:center;
+    color:var(--text-dim2);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+  }
+
+  @media (max-width:600px){
+    h1{font-size:38px;}
+    .wrap{padding:0 20px;}
+    header.hero{padding:60px 0 40px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Portafolio de datos &amp; business intelligence</div>
+    <h1>Jeffry Daniel<br>Ruiz Yapan</h1>
+    <p class="role">Analista de Datos especializado en Power BI, DAX y SQL Server. Transformo datos dispersos en dashboards que las empresas usan todos los días para decidir.</p>
+    <div class="contact-row">
+      <div><span>Tel:</span> 5300-8964</div>
+      <div><span>Correo:</span> Jeffartu.u@gmail.com</div>
+      <div><span>Ubicación:</span> Amatitlán, Guatemala</div>
+      <div><span>LinkedIn:</span> <!-- TODO: agrega tu URL de LinkedIn --> linkedin.com/in/tu-perfil</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Sobre mí</div>
+    <h2>Convierto datos en decisiones</h2>
+    <p class="lead">
+      Analista de Datos con experiencia en el desarrollo de dashboards corporativos y soluciones de Business Intelligence mediante Power BI. Especializado en modelado de datos, DAX, Power Query y SQL Server, con experiencia automatizando reportes, optimizando consultas y administrando Power BI Service y On-premises Data Gateway. Actualmente curso Ingeniería en Sistemas en la Universidad Mariano Gálvez de Guatemala.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Habilidades técnicas</div>
+    <h2>Stack de trabajo</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Visualización &amp; BI</h3>
+        <ul>
+          <li>Power BI Desktop &amp; Service</li>
+          <li>DAX</li>
+          <li>Power Query</li>
+          <li>Data Visualization</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Datos &amp; bases</h3>
+        <ul>
+          <li>SQL Server</li>
+          <li>MySQL</li>
+          <li>PostgreSQL</li>
+          <li>DBSQL</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Plataforma &amp; admin</h3>
+        <ul>
+          <li>Microsoft Fabric</li>
+          <li>On-premises Data Gateway</li>
+          <li>Databricks</li>
+          <li>SSMS</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Otros</h3>
+        <ul>
+          <li>Excel Avanzado</li>
+          <!-- TODO: agrega Python/R si los manejas -->
+          <li>Documentación técnica</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Proyectos</div>
+    <h2>Dashboards seleccionados</h2>
+    <p class="lead" style="margin-bottom:32px;">
+      <!-- TODO: ver instrucciones al final del archivo para publicar tus .pbix y reemplazar estos placeholders -->
+      4 dashboards desarrollados en Power BI, desde modelado de datos hasta visualización final para distintas áreas del negocio.
+    </p>
+
+    <!-- PROYECTO 1 -->
+    <div class="project">
+      <div class="project-meta">
+        <span>FUENTE: <b>SQL Server</b></span>
+        <span>REFRESH: <b>Diario</b></span>
+        <span>HERRAMIENTAS: <b>Power BI · DAX</b></span>
+      </div>
+      <div class="project-shot">
+        <!-- TODO: reemplaza este div por <img src="captura1.png" alt="Dashboard 1"> -->
+        Captura de pantalla del dashboard 1 aquí
+      </div>
+      <div class="project-body">
+        <h3>Nombre del dashboard 1</h3>
+        <p>Describe en 2-3 líneas: ¿qué problema de negocio resuelve este dashboard? ¿Qué KPIs muestra? ¿Qué decisiones permite tomar?</p>
+        <div class="tag-row">
+          <span class="tag">Power Query</span>
+          <span class="tag">DAX</span>
+          <span class="tag">SQL Server</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Ver dashboard interactivo →</a>
+          <a href="#">Descargar .pbix</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROYECTO 2 -->
+    <div class="project">
+      <div class="project-meta">
+        <span>FUENTE: <b>Excel / MySQL</b></span>
+        <span>REFRESH: <b>Semanal</b></span>
+        <span>HERRAMIENTAS: <b>Power BI · Power Query</b></span>
+      </div>
+      <div class="project-shot">
+        Captura de pantalla del dashboard 2 aquí
+      </div>
+      <div class="project-body">
+        <h3>Nombre del dashboard 2</h3>
+        <p>Describe el caso de uso, el área del negocio (ventas, finanzas, operaciones) y un resultado concreto, por ejemplo tiempo ahorrado o precisión mejorada.</p>
+        <div class="tag-row">
+          <span class="tag">Modelado de datos</span>
+          <span class="tag">KPIs</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Ver dashboard interactivo →</a>
+          <a href="#">Descargar .pbix</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROYECTO 3 -->
+    <div class="project">
+      <div class="project-meta">
+        <span>FUENTE: <b>PostgreSQL</b></span>
+        <span>REFRESH: <b>Mensual</b></span>
+        <span>HERRAMIENTAS: <b>Power BI · DAX</b></span>
+      </div>
+      <div class="project-shot">
+        Captura de pantalla del dashboard 3 aquí
+      </div>
+      <div class="project-body">
+        <h3>Nombre del dashboard 3</h3>
+        <p>Describe el reto técnico (por ejemplo, integrar múltiples fuentes) y cómo lo resolviste.</p>
+        <div class="tag-row">
+          <span class="tag">Integración de fuentes</span>
+          <span class="tag">Automatización</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Ver dashboard interactivo →</a>
+          <a href="#">Descargar .pbix</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROYECTO 4 -->
+    <div class="project">
+      <div class="project-meta">
+        <span>FUENTE: <b>Databricks</b></span>
+        <span>REFRESH: <b>Diario</b></span>
+        <span>HERRAMIENTAS: <b>Power BI · Microsoft Fabric</b></span>
+      </div>
+      <div class="project-shot">
+        Captura de pantalla del dashboard 4 aquí
+      </div>
+      <div class="project-body">
+        <h3>Nombre del dashboard 4</h3>
+        <p>Describe el alcance del proyecto y a quién está dirigido (gerencia, operaciones, ventas).</p>
+        <div class="tag-row">
+          <span class="tag">Microsoft Fabric</span>
+          <span class="tag">Optimización de rendimiento</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Ver dashboard interactivo →</a>
+          <a href="#">Descargar .pbix</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Certificaciones</div>
+    <h2>Formación</h2>
+    <div class="cert-list">
+      <div class="cert-item"><span>Certificación Profesional en Data Analyst</span><span><!-- TODO: institución -->Platzi</span></div>
+      <div class="cert-item"><span>Certificación Profesional en Análisis de Datos y Business Intelligence</span><span><!-- TODO: institución --></span></div>
+      <div class="cert-item"><span>Power BI · Power BI DAX</span><span>Curso</span></div>
+      <div class="cert-item"><span>SQL · SQL Práctico · PostgreSQL · DBSQL</span><span>Curso</span></div>
+      <div class="cert-item"><span>Databricks · Data Visualization</span><span>Curso</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Jeffry Daniel Ruiz Yapan · Amatitlán, Guatemala · Jeffartu.u@gmail.com
+  </div>
+</footer>
+
+</body>
+</html>
